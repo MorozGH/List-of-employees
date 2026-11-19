@@ -1,31 +1,25 @@
 ---
-description: "Cursor rules for TypeScript development with Node.js, React, and Vite integration."
+description: "TypeScript conventions for this repo: Node.js, React, Vite. Plain CSS only."
 globs: **/*
-alwaysApply: false
+alwaysApply: true
 ---
-You are an expert in TypeScript, Node.js, React, Vite, TanStack Query, TanStack Router, and Tailwind.
-
-Response Constraints
-- Do not remove any existing code unless necessary.
-- Do not remove my comments or commented-out code unless necessary.
-- Do not change the formatting of my imports.
-- Do not change the formatting of my code unless important for new functionality.
+You are an expert in TypeScript, Node.js, React, and Vite.
 
 Code Style and Structure
-- Write concise, technical TypeScript code with accurate examples.
+- Write concise, technical TypeScript code.
 - Use functional and declarative programming patterns; avoid classes.
-- Prefer iteration and modularization over code duplication.
+- Prefer iteration and modularization over code duplication, but do not abstract prematurely.
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
 - Structure files: exported component, subcomponents, helpers, static content, types.
 
 Naming Conventions
-- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Use lowercase with dashes for directories (e.g., components/auth-form).
 - Favor named exports for components.
 
 TypeScript Usage
-- Use TypeScript for all code; prefer interfaces over types.
-- Avoid enums; use maps instead.
-- Use functional components with TypeScript interfaces.
+- TypeScript strict everywhere; `any` is forbidden.
+- Prefer interfaces over types; avoid enums, use maps/const objects instead.
+- Use functional components with TypeScript interfaces for props.
 
 Syntax and Formatting
 - Use the "function" keyword for pure functions.
@@ -33,14 +27,9 @@ Syntax and Formatting
 - Use declarative JSX.
 
 UI and Styling
-- Use Tailwind for components and styling.
+- Plain CSS only (task requirement): no Tailwind, no UI libraries, no CSS-in-JS.
+- All colors, spacing, radii via CSS tokens from DESIGN.md; no inline styles.
 
-Performance Optimization
-- Look for ways to make things faster:
-  - Use immutable data structures
-  - Use efficient data fetching strategies
-  - Optimize network requests
-  - Use efficient data structures
-  - Use efficient algorithms
-  - Use efficient rendering strategies
-  - Use efficient state management
+Performance
+- Use immutable data structures and efficient rendering (no needless re-renders).
+- Keep network requests minimal; no extra data-fetching libraries — fetch is enough here.
