@@ -63,8 +63,12 @@ export function EmployeesPage({ onUnauthorized }: EmployeesPageProps) {
     api
       .listDepartments()
       .then((data) => setDepartments(data.departments))
-      .catch(() => {});
-  }, [refreshKey]);
+      .catch((error: unknown) => {
+        if (error instanceof ApiError && error.status === 401) {
+          onUnauthorized();
+        }
+      });
+  }, [refreshKey, onUnauthorized]);
 
   async function handleAdd(input: EmployeeInput): Promise<void> {
     setIsSubmitting(true);
