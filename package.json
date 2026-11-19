@@ -1,0 +1,18 @@
+{
+  "name": "list-of-employees",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Test task: employee list web app (React + Express + SQLite)",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "start": "npm run start -w server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
